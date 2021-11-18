@@ -5,6 +5,7 @@ import discord
 
 bot = commands.Bot(command_prefix='/')
 client = discord.Client()
+TEXT_ID = getenv('TEXT_ID')
 
 @bot.event
 async def on_command_error(ctx, error):
