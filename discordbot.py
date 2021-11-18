@@ -3,19 +3,7 @@ from os import getenv
 import traceback
 import discord
 
-bot = commands.Bot(command_prefix='/')
 client = discord.Client()
-
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
-
-
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
 
 # チャンネル入退室時の通知処理
 @client.event
@@ -31,5 +19,4 @@ async def on_voice_state_update(member, before, after):
 
 
 token = getenv('DISCORD_BOT_TOKEN')
-bot.run(token)
 client.run(token)
