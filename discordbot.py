@@ -32,3 +32,4 @@ async def on_voice_state_update(member, before, after):
 
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
+client.run(token)
