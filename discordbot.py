@@ -7,11 +7,6 @@ client = discord.Client()
 TEXT_CHANNEL = 880453619802050620
 DND_CHANNEL = 889433349951733770
 
-@client.event
-async def on_ready():
-    global Num_of_People
-    Num_of_People = 0
-
 # チャンネル入退室時の通知処理
 @client.event
 async def on_voice_state_update(member, before, after):
@@ -25,13 +20,6 @@ async def on_voice_state_update(member, before, after):
             if before.channel is None:
                 if after.channel.id != DND_CHANNEL:
                     await botRoom.send( member.name + " が参加しました！")
-                Num_of_People = Num_of_People + 1
-        elif after.channel is None:
-            Num_of_People = Num_of_People - 1
-        
-        if Num_of_People == 0 and before.channel.id != DND_CHANNEL:
-            await botRoom.send("ボイチャに誰もいなくなりました")
-
 
 token = getenv('DISCORD_BOT_TOKEN')
 client.run(token)
