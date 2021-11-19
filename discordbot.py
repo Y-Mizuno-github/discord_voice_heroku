@@ -24,7 +24,7 @@ async def on_voice_state_update(member, before, after):
         if after.channel is not None and after.channel is not before.channel:
             if before.channel is None:
                 if after.channel.id != DND_CHANNEL:
-                    await botRoom.send( member.name + "__  が参加しました！")
+                    await botRoom.send( member.name + " が参加しました！")
                 Num_of_People = Num_of_People + 1
         elif after.channel is None:
             Num_of_People = Num_of_People - 1
