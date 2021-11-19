@@ -29,7 +29,7 @@ async def on_voice_state_update(member, before, after):
         elif after.channel is None:
             Num_of_People = Num_of_People - 1
         
-        if Num_of_People == 0 and before.channel.id != DND_CHANNEL
+        if Num_of_People == 0 and before.channel.id != DND_CHANNEL:
             await botRoom.send("ボイチャに誰もいなくなりました")
 
 
