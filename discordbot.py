@@ -21,8 +21,9 @@ async def on_voice_state_update(member, before, after):
             if before.channel is None:
                 if after.channel.id != DND_CHANNEL:
                     await botRoom.send( member.name + " が参加しました！")
-        if len(member.guild.voice_client.channel.members) is None:
-            await botRoom.send("ボイチャに誰もいなくなりました")
+        if before.channel is not None:
+            if len(before.channel.members) == 0: 
+                await botRoom.send("ボイチャに誰もいなくなりました")
 
 token = getenv('DISCORD_BOT_TOKEN')
 client.run(token)
