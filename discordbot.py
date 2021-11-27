@@ -4,7 +4,7 @@ import traceback
 import discord
 
 client = discord.Client()
-TEXT_CHANNEL_ENV = getenv('DISCORD_BOT_TOKEN')
+TEXT_CHANNEL_ENV = getenv('TEXT_CHANNEL')
 TEXT_CHANNEL = int(TEXT_CHANNEL_ENV)
 DND_CHANNEL = 889433349951733770
 
