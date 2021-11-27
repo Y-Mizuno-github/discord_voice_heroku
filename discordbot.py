@@ -4,7 +4,8 @@ import traceback
 import discord
 
 client = discord.Client()
-TEXT_CHANNEL = 880453619802050620
+TEXT_CHANNEL_ENV = getenv('DISCORD_BOT_TOKEN')
+TEXT_CHANNEL = int(TEXT_CHANNEL_ENV)
 DND_CHANNEL = 889433349951733770
 
 # チャンネル入退室時の通知処理
